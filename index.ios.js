@@ -36,6 +36,12 @@ export default class AwesomeProject extends Component {
                     <Greeting name='qiana'/>
                     <Greeting name='lalala'/>
                 </View>
+                <View>
+                    <Blink text='I love to blink'/>
+                    <Blink text='Yes blinking is so great'/>
+                    <Blink text='bula bula bula'/>
+                    <Blink text='Look at me look at me look at me'/>
+                </View>
             </View>
         );
     }
@@ -45,6 +51,24 @@ class Greeting extends Component {
     render() {
         return (
             <Text>Hello {this.props.name}!</Text>
+        );
+    }
+}
+
+class Blink extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {showText: true};
+
+        setInterval(() => {
+            this.setState({showText: !this.state.showText});
+        }, 1000);
+    }
+
+    render() {
+        let display = this.state.showText ? this.props.text : ' ';
+        return (
+            <Text>{display}</Text>
         );
     }
 }
