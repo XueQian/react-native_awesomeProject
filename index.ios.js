@@ -31,7 +31,20 @@ export default class AwesomeProject extends Component {
                     Press Cmd+R to reload,{'\n'}
                     Cmd+D or shake for dev menu
                 </Text>
+                <View style={{alignItems: 'center'}}>
+                    <Greeting name='world'/>
+                    <Greeting name='qiana'/>
+                    <Greeting name='lalala'/>
+                </View>
             </View>
+        );
+    }
+}
+
+class Greeting extends Component {
+    render() {
+        return (
+            <Text>Hello {this.props.name}!</Text>
         );
     }
 }
